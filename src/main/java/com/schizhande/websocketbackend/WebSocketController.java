@@ -45,9 +45,9 @@ public class WebSocketController {
 //        logger.info("Sending");
         SimpMessageHeaderAccessor headerAccessor = SimpMessageHeaderAccessor.create(SimpMessageType.MESSAGE);
         headerAccessor.setSessionId("admin");
+        headerAccessor.setUser(new WSPrincipal("admin"));
         headerAccessor.setLeaveMutable(true);
 
-        messagingTemplate.convertAndSendToUser("admin", "/topic/reply", "From the server",
-                headerAccessor.getMessageHeaders());
+        messagingTemplate.convertAndSendToUser("admin", "/topic/reply", "From the server");
     }
 }

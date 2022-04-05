@@ -30,7 +30,7 @@ public class WSInterceptor implements ChannelInterceptor {
                 log.info("Token {}", name);
 
                 if (name instanceof ArrayList) {
-                    accessor.setUser(new WSPrincipal(((ArrayList<String>) name).get(0).toString()));
+                    accessor.setUser(new WSPrincipal("admin"));
                 }
             }
         }
